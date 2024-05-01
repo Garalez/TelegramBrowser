@@ -6,10 +6,11 @@
 }
 
 .userFormTitle {
-  /* color: var(--white); */
+  color: white;
   font-size: 25px;
   font-weight: 700;
   margin-bottom: 7px;
+  text-align: center;
 }
 
 .userFormItem {
@@ -33,7 +34,7 @@
 
 .userFormAccount {
   padding-left: 10px;
-  /* color: var(--inactive-input-border); */
+  color: #c6b6d7;
   margin-bottom: 5px;
 }
 
@@ -45,11 +46,11 @@
   width: 260px;
   height: 50px;
   padding-left: 18px;
-  /* background: var(--white); */
+  background: white;
   font-size: 27px;
-  /* border: 2px solid var(--inactive-input-border); */
+  border: 2px solid #c6b6d7;
   border-radius: 10px;
-  /* caret-color: var(--purple); */
+  caret-color: #210b36;
 }
 
 .userFormInput::-webkit-outer-spin-button,
@@ -61,7 +62,7 @@
 
 .userFormInput:focus {
   outline: none;
-  /* border: 2px solid var(--pink); */
+  border: 2px solid #b865d6;
 }
 
 .userFormBtnWrapper {
@@ -74,13 +75,13 @@
   width: 260px;
   height: 50px;
   align-self: flex-end;
-  /* background: var(--main-gradient); */
+  background: linear-gradient(87.4deg, #2e00b1 -11.74%, #8100bd 48.81%, #a400be 113.27%);
   font-family: 'Nunito';
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
   line-height: 25px;
-  /* color: var(--white); */
+  color: white;
   border: none;
   border-radius: 10px;
 }
@@ -91,17 +92,19 @@
 
 .userFormSubmitBtn:hover,
 .userFormDeleteBtn:hover {
-  /* background: var(--main-gradient-hover); */
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
+    linear-gradient(87.4deg, #2e00b1 -11.74%, #8100bd 48.81%, #a400be 113.27%);
 }
 
 .userFormSubmitBtn:focus,
 .userFormDeleteBtn:focus {
-  /* background: var(--main-gradient-focus); */
+  background: linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)),
+    linear-gradient(87.4deg, #2e00b1 -11.74%, #8100bd 48.81%, #a400be 113.27%);
 }
 
 .userFormSubmitBtn:disabled,
 .userFormDeleteBtn:disabled {
-  /* background: var(--grey); */
+  background: #b0b0b0;
   cursor: not-allowed;
 }
 
@@ -121,7 +124,7 @@
   bottom: -15px;
   width: 100%;
   height: 2px;
-  /* background: var(--purple); */
+  background: #210b36;
 }
 
 .contentSpan:not(:last-child) {
@@ -138,31 +141,25 @@
 }
 
 .userFormPhoneNumber {
-  /* color: var(--inactive-input-border); */
+  color: #c6b6d7;
   font-size: 20px;
   font-weight: 700;
   margin-bottom: 7px;
 }
 
 .userFormEmail {
-  /* color: var(--inactive-input-border); */
+  color: #c6b6d7;
   font-size: 20px;
   font-weight: 700;
 }
 
 @media (max-width: 1170px) {
   .userFormLabelsWrapper {
-    margin: 0 0 20px 0;
+    margin: 0 0 30px 0;
+    flex-direction: column;
   }
 
   .userFormContentWrapper {
-    flex-direction: column;
-  }
-}
-
-@media (max-width: 650px) {
-  .userFormLabelsWrapper {
-    margin: 0 0 30px 0;
     flex-direction: column;
   }
 

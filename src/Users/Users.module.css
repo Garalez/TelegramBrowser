@@ -1,0 +1,21 @@
+.contentWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.heading {
+  margin-bottom: 20px;
+}
+
+.list {
+  border-radius: 10px;
+  padding: 30px 35px 50px 50px;
+  background: #392350;
+  width: fit-content;
+}
+
+.listItem {
+  margin-bottom: 20px;
+}

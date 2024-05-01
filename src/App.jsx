@@ -8,13 +8,9 @@ function App() {
     tg.ready();
   }, []);
 
-  const onClose = () => {
-    tg.close();
-  }
   return (
     <>
       <Users />
-      <button onClick={onClose}>Close</button>
     </>
   )
 }
