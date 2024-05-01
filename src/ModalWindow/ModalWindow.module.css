@@ -1,0 +1,113 @@
+.modalOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 100;
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modalBody {
+  width: 450px;
+  height: 100%;
+  background-color: #210B36;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.modalContentWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 25px 0 25px 5px;
+}
+
+.modalContent {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-family: 'Comfortaa';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 29px;
+}
+
+.modalBtnsGroup {
+  display: flex;
+}
+
+.modalBtn {
+  width: 170px;
+  height: 40px;
+  align-self: flex-end;
+  background: linear-gradient(87.4deg, #2e00b1 -11.74%, #8100bd 48.81%, #a400be 113.27%);
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 25px;
+  border: none;
+  border-radius: 5px;
+}
+
+.modalBtn:first-child {
+  margin-right: 50px;
+}
+
+.modalBtn:hover {
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
+  linear-gradient(87.4deg, #2e00b1 -11.74%, #8100bd 48.81%, #a400be 113.27%);
+}
+
+.modalBtn:focus {
+  background: linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)),
+  linear-gradient(87.4deg, #2e00b1 -11.74%, #8100bd 48.81%, #a400be 113.27%);
+}
+
+.modalBtn:disabled {
+  background: #b0b0b0;
+  cursor: not-allowed;
+}
+
+@media(max-width: 520px) {
+  .modalBody {
+    width: 320px;
+  }
+
+  .modalContent {
+    margin-bottom: 20px;
+    font-size: 20px;
+  }
+
+  .modalBtnsGroup {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .modalBtn {
+    width: 170px;
+    height: 40px;
+    align-self: flex-end;
+    font-size: 18px;
+  }
+
+  .modalBtn:first-child {
+    margin: 0 0 15px 0;
+  }
+}
