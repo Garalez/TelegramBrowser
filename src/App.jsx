@@ -13,7 +13,6 @@ function App() {
   }
   return (
     <>
-      <h1>React App</h1>
       <Users />
       <button onClick={onClose}>Close</button>
     </>

@@ -1,0 +1,192 @@
+.userForm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.userFormTitle {
+  /* color: var(--white); */
+  font-size: 25px;
+  font-weight: 700;
+  margin-bottom: 7px;
+}
+
+.userFormItem {
+  padding-top: 10px;
+}
+
+.userFormItem:not(:last-child) {
+  margin-bottom: 25px;
+}
+
+.userFormLabelsWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.userFormLabel:not(:last-child) {
+  margin-right: 20px;
+}
+
+.userFormAccount {
+  padding-left: 10px;
+  /* color: var(--inactive-input-border); */
+  margin-bottom: 5px;
+}
+
+.userFormContentWrapper {
+  display: flex;
+}
+
+.userFormInput {
+  width: 260px;
+  height: 50px;
+  padding-left: 18px;
+  /* background: var(--white); */
+  font-size: 27px;
+  /* border: 2px solid var(--inactive-input-border); */
+  border-radius: 10px;
+  /* caret-color: var(--purple); */
+}
+
+.userFormInput::-webkit-outer-spin-button,
+.userFormInput::-webkit-inner-spin-button {
+  appearance: none;
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.userFormInput:focus {
+  outline: none;
+  /* border: 2px solid var(--pink); */
+}
+
+.userFormBtnWrapper {
+  display: flex;
+  align-self: flex-end;
+}
+
+.userFormSubmitBtn,
+.userFormDeleteBtn {
+  width: 260px;
+  height: 50px;
+  align-self: flex-end;
+  /* background: var(--main-gradient); */
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 25px;
+  /* color: var(--white); */
+  border: none;
+  border-radius: 10px;
+}
+
+.userFormSubmitBtn {
+  margin-right: 20px;
+}
+
+.userFormSubmitBtn:hover,
+.userFormDeleteBtn:hover {
+  /* background: var(--main-gradient-hover); */
+}
+
+.userFormSubmitBtn:focus,
+.userFormDeleteBtn:focus {
+  /* background: var(--main-gradient-focus); */
+}
+
+.userFormSubmitBtn:disabled,
+.userFormDeleteBtn:disabled {
+  /* background: var(--grey); */
+  cursor: not-allowed;
+}
+
+.userTransactionsBtn {
+  width: 340px;
+  height: 45px;
+  margin-bottom: 20px;
+}
+
+.userFormItem {
+  position: relative;
+}
+
+.userFormItem:not(:last-child)::after {
+  position: absolute;
+  content: '';
+  bottom: -15px;
+  width: 100%;
+  height: 2px;
+  /* background: var(--purple); */
+}
+
+.contentSpan:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.userFormInfoWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column; 
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.userFormPhoneNumber {
+  /* color: var(--inactive-input-border); */
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 7px;
+}
+
+.userFormEmail {
+  /* color: var(--inactive-input-border); */
+  font-size: 20px;
+  font-weight: 700;
+}
+
+@media (max-width: 1170px) {
+  .userFormLabelsWrapper {
+    margin: 0 0 20px 0;
+  }
+
+  .userFormContentWrapper {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 650px) {
+  .userFormLabelsWrapper {
+    margin: 0 0 30px 0;
+    flex-direction: column;
+  }
+
+  .userFormLabel:not(:last-child) {
+    margin: 0 0 20px 0;
+  }
+
+  .userFormBtnWrapper {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .userFormSubmitBtn {
+    margin: 0 0 20px 0;
+  }
+
+  .userTransactionsBtn {
+    width: 260px;
+    height: 45px;
+  }  
+}
+
+@media (max-width: 520px) {
+  .contentSpan:not(:last-child) {
+    margin-bottom: 5px;
+  }
+}

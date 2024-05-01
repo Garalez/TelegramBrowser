@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import User from './User';
 // import style from './Users.module.scss';
 
 export const Users = () => {
@@ -10,21 +11,19 @@ export const Users = () => {
         setUsers(data);
       });
   }, []);
-  console.log(users);
+
   return (
     <div>
-      <h2>Users</h2>
+      <h2 style={{ textAlign: 'center', marginBottom: '20px'}}>Пользователи</h2>
       <ul>
-        {users.map(user => (
-          <li key={user.id}>
-            <p>{user.name}</p>
-            <p>{user.lastName}</p>
-            <p>{user.email}</p>
-            <p>{user.phoneNumber}</p>
-            <p>{user.rub}</p>
-            <p>{user.bit}</p>
-          </li>
-        ))}
+        {users.map(
+          user =>
+            user.id !== '00001' && (
+              <li key={user.id} style={{ marginBottom: '20px'}}>
+                <User user={user} />
+              </li>
+            )
+        )}
       </ul>
     </div>
   );
