@@ -33,9 +33,9 @@ export const User = ({ user }) => {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(userCurrency),
+    }).then(() => {
+      tg.close();
     });
-
-    tg.close();
   };
 
   const capitalize = string => string.charAt(0).toUpperCase() + string.slice(1);
