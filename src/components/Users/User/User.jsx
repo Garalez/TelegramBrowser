@@ -32,7 +32,7 @@ export const User = ({ user }) => {
 
   const modalAnswerConfirm = () => {
     setDataFetching(true);
-    fetch(`https://telegram-testing.glitch.me/test/${user.id}`, {
+    fetch(`https://telegram-testing.glitch.me/user/${user.id}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
@@ -67,6 +67,7 @@ export const User = ({ user }) => {
         />
       )}
       <li className={style.userFormItem}>
+        <p>{tg.viewportHeight}</p>
         <form className={style.userForm} onSubmit={formSubmit}>
           <div className={style.userFormInfoWrapper}>
             <h2 className={style.userFormTitle}>{`${capitalize(user.name)} ${capitalize(
