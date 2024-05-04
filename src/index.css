@@ -32,11 +32,8 @@
   src: local(''), url('assets/fonts/nunito/Nunito-SemiBold.ttf') format('truetype');
 }
 
-html {
-  min-height: 100dvh;
-}
-
 body {
+  height: var(--tg-viewport-height);
   background: #210b36;
   display: flex;
   justify-content: center;

@@ -2,7 +2,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  height: 100%;
+  height: var(--tg-viewport-height);
   width: 100%;
   background: rgba(0, 0, 0, 0.3);
   display: flex;
