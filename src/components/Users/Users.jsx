@@ -3,6 +3,8 @@ import Prealoader from '../Preloader';
 import User from './User';
 import style from './Users.module.css';
 
+const tg = window.Telegram.WebApp;
+
 export const Users = () => {
   const [users, setUsers] = useState([]);
   const [dataFetching, setDataFetching] = useState(false);
@@ -13,7 +15,10 @@ export const Users = () => {
       .then(response => response.json())
       .then(data => {
         setUsers(data.reverse());
-        setTimeout(() => setDataFetching(false), 100);
+        setTimeout(() => {
+          tg.expand();
+          setDataFetching(false);
+        }, 100);
       });
   }, []);
 
