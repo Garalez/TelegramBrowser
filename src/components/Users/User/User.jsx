@@ -74,7 +74,7 @@ export const User = ({ user }) => {
           closeModal={() => setIsModalOpen(false)}
         />
       )}
-      <li className={style.userFormItem}>
+      <li className={style.userFormItem} style={{ paddingBottom: `${viewportHeight}px`}}>
         <p>{viewportHeight}</p>
         <form className={style.userForm} onSubmit={formSubmit}>
           <div className={style.userFormInfoWrapper}>
