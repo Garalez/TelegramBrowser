@@ -1,11 +1,13 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { ModalWindow } from '../../ModalWindow/ModalWindow';
+import Preloader from '../../Preloader';
 import style from './User.module.css';
 
 export const User = ({ user }) => {
   const tg = window.Telegram.WebApp;
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [dataFetching, setDataFetching] = useState(false);
   const [userCurrency, setUserCurrency] = useState({
     rub: user.rub,
     bit: user.bit,
@@ -27,6 +29,7 @@ export const User = ({ user }) => {
   };
 
   const modalAnswerConfirm = () => {
+    setDataFetching(true);
     fetch(`https://telegram-testing.glitch.me/test/${user.id}`, {
       method: 'PATCH',
       headers: {
@@ -34,6 +37,7 @@ export const User = ({ user }) => {
       },
       body: JSON.stringify(userCurrency),
     }).then(() => {
+      setDataFetching(false);
       tg.close();
     });
   };
@@ -42,6 +46,7 @@ export const User = ({ user }) => {
 
   return (
     <>
+      {dataFetching && <Preloader color={'white'} />}
       {isModalOpen && (
         <ModalWindow
           content={

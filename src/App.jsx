@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import './App.css';
-import Users from './Users';
+import Users from './components/Users';
 const tg = window.Telegram.WebApp;
 
 function App() {
