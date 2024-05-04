@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { ModalWindow } from '../../ModalWindow/ModalWindow';
 import Preloader from '../../Preloader';
 import style from './User.module.css';
@@ -8,6 +8,7 @@ export const User = ({ user }) => {
   const tg = window.Telegram.WebApp;
 
   const inputRef = useRef(null);
+  const [viewportHeight, setViewportHeight] = useState(tg.viewportHeight);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [dataFetching, setDataFetching] = useState(false);
   const [userCurrency, setUserCurrency] = useState({
@@ -29,6 +30,10 @@ export const User = ({ user }) => {
     inputRef.current.blur();
     setIsModalOpen(true);
   };
+
+  useEffect(() => {
+    setViewportHeight(tg.viewportHeight);
+  }, [tg]);
 
   const modalAnswerConfirm = () => {
     setDataFetching(true);
@@ -67,7 +72,7 @@ export const User = ({ user }) => {
         />
       )}
       <li className={style.userFormItem}>
-        <p>{tg.viewportHeight}</p>
+        <p>{viewportHeight}</p>
         <form className={style.userForm} onSubmit={formSubmit}>
           <div className={style.userFormInfoWrapper}>
             <h2 className={style.userFormTitle}>{`${capitalize(user.name)} ${capitalize(
