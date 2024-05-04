@@ -32,7 +32,10 @@ export const User = ({ user }) => {
   };
 
   useEffect(() => {
-    setViewportHeight(tg.viewportHeight);
+    tg.onEvent('viewportChanged', function () {
+      setViewportHeight(this.viewportHeight);
+    });
+    return () => tg.offEvent('viewportChanged');
   }, [tg]);
 
   const modalAnswerConfirm = () => {
