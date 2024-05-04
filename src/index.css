@@ -33,6 +33,7 @@
 }
 
 body {
+  min-height: var(--tg-viewport-height);
   background: #210b36;
   display: flex;
   justify-content: center;
