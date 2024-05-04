@@ -1,11 +1,13 @@
 import PropTypes from 'prop-types';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { ModalWindow } from '../../ModalWindow/ModalWindow';
 import Preloader from '../../Preloader';
 import style from './User.module.css';
 
 export const User = ({ user }) => {
   const tg = window.Telegram.WebApp;
+
+  const inputRef = useRef(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [dataFetching, setDataFetching] = useState(false);
   const [userCurrency, setUserCurrency] = useState({
@@ -24,7 +26,7 @@ export const User = ({ user }) => {
 
   const formSubmit = e => {
     e.preventDefault();
-
+    inputRef.current.blur();
     setIsModalOpen(true);
   };
 
@@ -87,6 +89,7 @@ export const User = ({ user }) => {
                   type='number'
                   value={userCurrency.rub}
                   onChange={inputControl}
+                  ref={inputRef}
                 />
               </label>
 
