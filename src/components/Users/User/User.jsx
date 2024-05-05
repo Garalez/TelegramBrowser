@@ -10,18 +10,35 @@ export const User = ({ user }) => {
   const inputRef = useRef(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [dataFetching, setDataFetching] = useState(false);
+  const [isButtonDisabled, setIsButtonDisabled] = useState(true);
   const [userCurrency, setUserCurrency] = useState({
     rub: user.rub,
     bit: user.bit,
   });
 
-  const [isButtonActive, setIsButtonActive] = useState(true);
+  const inputControl = event => {
+    const { name, value } = event.target;
+    const keyPressed = event.nativeEvent.data;
+    const regexp = /[^0-9.]/g;
+  
+    if (!regexp.test(keyPressed) || keyPressed === null) {
+      const cleanedValue = value.replace(regexp, '');
 
-  const inputControl = e => {
-    const { name, value } = e.target;
+      setUserCurrency(prev => {
+        if (prev[name].toString().includes('.') && keyPressed === '.') {
+          return { ...userCurrency, [name]: cleanedValue.slice(0, -1) };
+        }
+        return { ...userCurrency, [name]: cleanedValue };
+      });
+    }
 
-    setUserCurrency({ ...userCurrency, [name]: value });
-    if (isButtonActive) setIsButtonActive(false);
+    const otherFieldName = name === 'rub' ? 'bit' : 'rub';
+    const otherFieldValue = userCurrency[otherFieldName];
+
+    const isInputValueChanged = +value !== user[name];
+    const isValueOfInputsMoreThanZero = +value > 0 && +otherFieldValue > 0;
+
+    setIsButtonDisabled(!(value && isInputValueChanged && isValueOfInputsMoreThanZero))
   };
 
   const formSubmit = e => {
@@ -86,10 +103,11 @@ export const User = ({ user }) => {
                 <input
                   className={style.userFormInput}
                   name='rub'
-                  type='number'
+                  type='text'
                   value={userCurrency.rub}
                   onChange={inputControl}
                   ref={inputRef}
+                  inputMode='numeric'
                 />
               </label>
 
@@ -98,14 +116,16 @@ export const User = ({ user }) => {
                 <input
                   className={style.userFormInput}
                   name='bit'
-                  type='number'
+                  type='text'
                   value={userCurrency.bit}
                   onChange={inputControl}
+                  ref={inputRef}
+                  inputMode='numeric'
                 />
               </label>
             </div>
             <div className={style.userFormBtnWrapper}>
-              <button className={style.userFormSubmitBtn} type='submit' disabled={isButtonActive}>
+              <button className={style.userFormSubmitBtn} type='submit' disabled={isButtonDisabled}>
                 Сохранить
               </button>
             </div>
