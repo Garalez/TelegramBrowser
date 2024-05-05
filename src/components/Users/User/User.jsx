@@ -107,7 +107,7 @@ export const User = ({ user }) => {
                   value={userCurrency.rub}
                   onChange={inputControl}
                   ref={inputRef}
-                  inputMode='numeric'
+                  inputMode='decimal'
                 />
               </label>
 
@@ -120,7 +120,7 @@ export const User = ({ user }) => {
                   value={userCurrency.bit}
                   onChange={inputControl}
                   ref={inputRef}
-                  inputMode='numeric'
+                  inputMode='decimal'
                 />
               </label>
             </div>
