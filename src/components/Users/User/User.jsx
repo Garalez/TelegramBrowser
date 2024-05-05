@@ -32,13 +32,9 @@ export const User = ({ user }) => {
       });
     }
 
-    const otherFieldName = name === 'rub' ? 'bit' : 'rub';
-    const otherFieldValue = userCurrency[otherFieldName];
-
     const isInputValueChanged = +value !== user[name];
-    const isValueOfInputsMoreThanZero = +value > 0 && +otherFieldValue > 0;
 
-    setIsButtonDisabled(!(value && isInputValueChanged && isValueOfInputsMoreThanZero))
+    setIsButtonDisabled(!(value && isInputValueChanged));
   };
 
   const formSubmit = e => {
