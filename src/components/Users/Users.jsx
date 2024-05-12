@@ -11,7 +11,7 @@ export const Users = () => {
 
   useEffect(() => {
     setDataFetching(true);
-    fetch('https://telegram-testing.glitch.me/users')
+    fetch('https://force-capital.glitch.me/users-admin')
       .then(response => response.json())
       .then(data => {
         setUsers(data.reverse());

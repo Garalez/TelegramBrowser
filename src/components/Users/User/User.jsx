@@ -45,15 +45,15 @@ export const User = ({ user }) => {
 
   const modalAnswerConfirm = () => {
     setDataFetching(true);
-    fetch(`https://telegram-testing.glitch.me/user/${user.id}`, {
+    fetch(`https://force-capital.glitch.me/telegram-changes/${user.id}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(userCurrency),
     }).then(() => {
-      setDataFetching(false);
       tg.close();
+      setDataFetching(false);
     });
   };
 
